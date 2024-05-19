@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+        <a class="btn btn-outline-success" href="/taskmanager/public/login">Se connecter</a>
+    </div>
+  </div>
+</nav>
+<div style="text-align:center;margin-top: 150px;">
+<h1>Bienvenue sur TaskManager</h1>
+<h2>Pour vous connecter cliquez <a href="/taskmanager/public/login">ici</a></h2>
+</div>
+{% endblock %}
