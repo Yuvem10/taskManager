@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+
+<div style="text-align:center;margin-top: 100px;">
+<h2 style="margin-bottom: 50px;">{{ username }}, voici votre planning pour aujourd'hui</h2>
+<table class="table caption-top">
+  <thead>
+    <tr>
+      <th scope="col">Tache à faire</th>
+      <th scope="col">Attribué par</th>
+      <th scope="col">Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for task in tasks %}
+    <tr>
+      <td scope="row">{{ task.designation }}</td>
+      <td>{{ task.attribuepar }}</td>
+      {% if task.faite == 0 %}
+      <td><a class="btn btn-primary" href="{{ path('validation', {id:task.id}) }}">Valider la tâche</a></td>
+      {% else %}
+      <td><a class="btn btn-success" href="{{ path('validation', {id:task.id}) }}" onclick="return confirm('Voulez vous remettre cette tâche comme non validée ?')">Validée</a></td>
+      {% endif %}
+    </tr>
+     {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
+

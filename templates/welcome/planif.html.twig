@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<table class="table caption-top" style="text-align:center">
+  <thead>
+    <tr>
+      <th scope="col">Tache</th>
+      <th scope="col">Attribué à</th>
+      <th scope="col">Date</th>
+      <th scope="col">Validé</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for task in tasks %}
+    <tr>
+      <td scope="row">{{ task.designation }}</td>
+      <td>{{ task.user.getUsername() }}</td>
+      <td>{{ task.date|date('d-m-Y') }}</td>
+      <td>{% if task.faite == 0 %}
+
+      Non
+
+      {% else %}
+      Oui
+
+      {% endif %}
+      </td>
+      <td>
+      <a class="btn btn-warning" href="{{ path('edit', {id:task.id}) }}">Modifier</a>
+      <a class="btn btn-danger"  href="{{ path('delete', {id:task.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cette tâche ?')">Supprimer</a>
+      </td>
+    </tr>
+     {% endfor %}
+  </tbody>
+</table>
+<div style="text-align:center">
+<a class="btn btn-primary" href="planif/ajout">Ajouter une tâche</a>
+</div>
+
+{% endblock %}

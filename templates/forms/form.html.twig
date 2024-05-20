@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+
+{{ form_label(form.designation, null, {'label_attr': {'class':'form-label'}} ) }}
+{{ form_widget(form.designation, {'attr': {'class':'form-control'}} ) }}
+
+{{ form_label(form.contenu, null, {'label_attr': {'class':'form-label'}} ) }}
+{{ form_widget(form.contenu, {'attr': {'class':'form-control'}} ) }}
+
+{{ form_label(form.date, null, {'label_attr': {'class':'form-label'}} ) }}
+{{ form_widget(form.date, {'attr': {'type':'date', 'class':'form-control', 'value':'2024-05-19'} } ) }}
+
+{{ form_label(form.user, null, {'label_attr': {'class':'form-label'}} ) }}
+{{ form_widget(form.user, {'attr': {'class':'form-control'}} ) }}
+
+{{ form_rest(form)}}
+<button style="margin-top:20px" class="btn btn-primary" type="submit">Enregistrer</button>
+{{ form_end(form) }}
